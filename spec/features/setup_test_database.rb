@@ -1,14 +1,16 @@
-require 'pg'
+require './lib/database_connection.rb'
+
 
 def setup_test_database
- connection = PG.connect(dbname: 'airbnb_test')
+  Database_connection.connect
 
-  connection.exec("DROP TABLE users CASCADE;")
-  connection.exec("DROP TABLE spaces CASCADE;")
-  connection.exec("DROP TABLE availability CASCADE;")
-  connection.exec("DROP TABLE bookings CASCADE;")
 
-  connection.exec("CREATE TABLE users (
+  Database_connection.sql("DROP TABLE users CASCADE;")
+  Database_connection.sql("DROP TABLE spaces CASCADE;")
+  Database_connection.sql("DROP TABLE availability CASCADE;")
+  Database_connection.sql("DROP TABLE bookings CASCADE;")
+
+  Database_connection.sql("CREATE TABLE users (
     id serial PRIMARY KEY,
     username varchar(60) UNIQUE,
     name varchar(60),
