@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style>
+        div {
+            border: 1px solid powderblue;
+            padding: 30px;
+            text-align: center;
+        }
+    </style>
+    <meta charset="utf-8">
+    <title>List a space</title>
+  </head>
+  <body>
+    <form style="text-align:right" action="/spaces" method="get">
+      <input type="submit" value="Book a Space">
+    </form>
+    <h1 style="text-align:center;"> List a space </h1>
+    <form action="/spaces" method="post">
+      <div>
+      <label for="space_name">
+        Name
+        <input type="text" name="space_name">
+      </label></div>
+      <div>
+      <label for="price_in_pence">
+        Price per night (£)
+        <input type="text" name="price_in_pence">
+      </label></div>
+      <div>
+      <label for="space_description">
+        Description
+        <textarea>
+        </textarea>
+      </label></div>
+        <form>
+          <div>
+            <label for="available_from">Available from:</label>
+            <input type="date" id="available_from" name="available_from">
+        </form>
+        <form>
+            <label for="available_to">Available to:</label>
+            <input type="date" id="available_to" name="available_to">
+          </div>
+        </form>
+      <div style="text-align:center">
+        <input type="submit" value="List my Space">
+      </div>
+    </form>
+  </body>
+</html>
