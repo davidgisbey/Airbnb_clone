@@ -26,13 +26,10 @@ describe(Space) do
 		 space = Space.create(2, 'Buckingham Palace', 245, 'Nice and comfy')
 		 expect(space.user_id).to equal(2)
 		 end
+
+		it('.list method returns an aray of all the spaces in the database') do
+			spaces = Space.list
+			expect(spaces[0].property_name).to eq("David's house")
+		end
 	 end
 end
-
-#
-# 	  it('.list method returns all space objects') do
-# 			spaces = Space.list
-#
-# 	  end
-#
-# end
