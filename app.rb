@@ -7,11 +7,11 @@ class Airbnb < Sinatra::Base
   Database_connection.connect
 
   get '/' do
-    'Hello Battle!'
+    erb :login, {:layout => true}
   end
 
   get '/space/add' do
-    erb(:add)
+    erb :add, {:layout => true}
   end
 
   post '/spaces/new' do
