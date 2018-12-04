@@ -22,7 +22,7 @@ class Airbnb < Sinatra::Base
       redirect('/login')
     end
     session[:user] = User.authenticate(params[:email], params[:password])
-    redirect('/spaces')
+    redirect('/spaces') #Redirects 
   end
 
   get '/register' do
