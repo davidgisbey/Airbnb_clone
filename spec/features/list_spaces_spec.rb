@@ -17,10 +17,5 @@ feature 'List Spaces' do
     expect(page).to have_content "This is a house where david lives most of the time"
     expect(page).to have_content "stay for a night underneath the stockport"
 	end
-	
-  scenario 'display an email button' do
-		visit '/spaces'
-    expect(page).to have_selector(:link_or_button, 'contact owner')
-  end
 
 end
