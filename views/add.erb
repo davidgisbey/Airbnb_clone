@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style>
+        div {
+            padding: 30px;
+            text-align: center;
+        }
+        body {
+          background-image:url("https://cdn.pixabay.com/photo/2018/03/04/09/51/space-3197611__480.jpg");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+    </style>
+    <meta charset="utf-8">
+    <title>List a space</title>
+  </head>
+  <body>
+    <form style="text-align:right" action="/spaces" method="get">
+      <input type="submit" value="Book a Space">
+    </form>
+    <h1 style="text-align:center;"> List a Space </h1>
+    <form action="/spaces/new" method="post">
+      <div>
+        <label for="space_name">
+          Name
+          <input type="text" name="space_name">
+        </label></div>
+      <div>
+        <label for="price_per_night">
+          Price per night (£)
+          <input type="text" name="price_per_night">
+        </label></div>
+      <div>
+        <label for="space_description">
+          Description<br>
+          <textarea rows="8" cols="100"></textarea>
+        </label></div>
+        <div>
+          <form>
+              <td style="vertical-align:left">
+              <label for="available_from">Available from:</label>
+              <input type="date" id="available_from" name="available_from">
+          </form>
+          <form>
+            <label for="available_to">&nbsp&nbsp&nbsp&nbspAvailable to:</label>
+            <input type="date" id="available_to" name="available_to"></td>
+          </form>
+      </div>
+      <div style="text-align:center">
+        <input type="submit" value="List my Space">
+      </div>
+    </form>
+  </body>
+</html>
