@@ -42,4 +42,21 @@ describe User do
     expect(User.email_already_exists?("test@test.com", databaseClassforEmailEmpty)).to eq false
   end
 
+  it("returns false when email address entered incorrectly") do
+    user = User.create("test@test.com", "test", "password")
+    expect(User.authenticate("test@incorrect.com", "password")).to eq false
+  end
+
+  it("returns false when password entered incorrectly") do
+    user = User.create("test@test.com", "test", "password")
+    expect(User.authenticate("test@test.com", "incorrect")).to eq false
+  end
+
+  it("returns user object when email and password entered correctly") do
+    user = User.create("test@test.com", "test", "password")
+    user = User.authenticate("test@test.com", "password")
+    expect(user.username).to eq "test"
+    expect(user.email).to eq "test@test.com"
+  end
+
 end

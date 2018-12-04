@@ -22,5 +22,11 @@ class User
     result.any?
   end
 
-
+  def self.authenticate(email_address, entry_password, database_connection_class = Database_connection)
+    result = database_connection_class.sql("SELECT * FROM users WHERE email = '#{email_address}'")
+    if result.any? == false || BCrypt::Password.new(result[0]['password']) != entry_password
+      return false
+    end
+    User.new( result[0]['id'], result[0]['email'], result[0]['username'])
+  end
 end
