@@ -24,4 +24,11 @@ class Space
 			query_result[0]['price_in_pence'].to_i, query_result[0]['property_description'])
 	end
 
+	def self.list
+		query_result = Database_connection.sql("SELECT * FROM spaces")
+		spaces = query_result.map{ |space| Space.new(space['id'],space['user_id'],space['property_name'],space['price_in_pence'],space['property_description']) }
+		p spaces
+		return spaces
+	end
+
 end
