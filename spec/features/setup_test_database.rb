@@ -43,8 +43,8 @@ def setup_test_database
     accepted BOOLEAN DEFAULT NULL
   );
 
-  insert into users (username, name, email, password)
-  values ('david', 'David G', 'david@email.com', '#{enc_password}'),
+  INSERT INTO users (username, name, email, password)
+  VALUES ('david', 'David G', 'david@email.com', '#{enc_password}'),
   ('Michael', 'Michael', 'michael@email.com', '#{enc_password}'),
   ('Nim', 'Nim', 'nim@email.com', '#{enc_password}'),
   ('Abdi', 'Abdi', 'abdi@email.com', '#{enc_password}'),
