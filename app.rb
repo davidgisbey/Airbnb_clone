@@ -1,6 +1,11 @@
 require 'sinatra/base'
+require './lib/database_connection.rb'
+require './lib/space.rb'
 
 class Airbnb < Sinatra::Base
+
+  Database_connection.connect
+
   get '/' do
     erb :login, {:layout => true}
   end
@@ -14,7 +19,8 @@ class Airbnb < Sinatra::Base
   end
 
   get '/spaces' do
-    erb :spaces
+    @spaces = Space.list
+    erb(:spaces)
   end
 
   # start the server if ruby file executed directly
