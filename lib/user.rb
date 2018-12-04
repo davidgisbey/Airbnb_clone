@@ -30,6 +30,4 @@ class User
     user
   end
 
-
-
 end
