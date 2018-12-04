@@ -13,11 +13,15 @@ class Space
 			query_result = Database_connection.sql("INSERT INTO spaces(user_id, property_name,
 			price_in_pence, property_description)
 			VALUES( #{user_id}, '#{property_name}', #{price_in_pence}, '#{property_description}')
-			RETURNING (id, user_id, property_name,
-			price_in_pence, property_description);  ")
+			RETURNING id, user_id, property_name,
+			price_in_pence, property_description  ")
 
-			Space.new(query_result[0]['id'], query_result[0]['user_id'], query_result[0]['property_name'],
-			query_result[0]['price_in_pence'], query_result[0]['property_description'])
+			puts 'hello im here'
+			p query_result[0]['user_id']
+			p query_result[0]
+
+			Space.new(query_result[0]['id'].to_i, query_result[0]['user_id'].to_i, query_result[0]['property_name'],
+			query_result[0]['price_in_pence'].to_i, query_result[0]['property_description'])
 	end
 
 end
