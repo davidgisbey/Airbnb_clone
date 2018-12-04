@@ -4,7 +4,7 @@ require 'bcrypt'
 def setup_test_database
   Database_connection.connect
 
-  enc_password = BCrypt::Password('password')
+  enc_password = BCrypt::Password.create('password')
 
   Database_connection.sql("DROP TABLE users CASCADE;")
   Database_connection.sql("DROP TABLE spaces CASCADE;")
