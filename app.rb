@@ -1,6 +1,10 @@
 require 'sinatra/base'
+require './lib/database_connection.rb'
 
 class Airbnb < Sinatra::Base
+
+  Database_connection.connect
+
   get '/' do
     'Hello Battle!'
   end
