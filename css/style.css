@@ -5,8 +5,9 @@ body, button, input, textarea, {
 }
 
 body {
-  background-image:url("https://cdn.pixabay.com/photo/2018/03/04/09/51/space-3197611__480.jpg");
+  /* background-image:url("https://cdn.pixabay.com/photo/2018/03/04/09/51/space-3197611__480.jpg"); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: red;
 }

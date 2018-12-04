@@ -7,7 +7,7 @@ class Airbnb < Sinatra::Base
   Database_connection.connect
 
   get '/' do
-    erb :login, {:layout => true}
+    erb(:login, {:layout => true})
   end
 
   get '/space/add' do
@@ -20,7 +20,7 @@ class Airbnb < Sinatra::Base
 
   get '/spaces' do
     @spaces = Space.list
-    erb(:spaces)
+    erb(:spaces, {:layout => true})
   end
 
   # start the server if ruby file executed directly
