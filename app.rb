@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/database_connection.rb'
+require './lib/space.rb'
 
 class Airbnb < Sinatra::Base
 
@@ -18,6 +19,7 @@ class Airbnb < Sinatra::Base
   end
 
   get '/spaces' do
+    @spaces = Space.list
     erb(:spaces)
   end
 

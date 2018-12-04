@@ -22,8 +22,12 @@ class Space
 
 	def self.list
 		query_result = Database_connection.sql("SELECT * FROM spaces")
-		spaces = query_result.map{ |space| Space.new(space['id'],space['user_id'],space['property_name'],space['price_in_pence'],space['property_description']) }
+		spaces = query_result.map{ |space| Space.new(space['id'].to_i ,space['user_id'].to_i ,space['property_name'],space['price_in_pence'].to_i ,space['property_description']) }
 		return spaces
 	end
+
+	def get_formatted_price
+  	  "£#{'%.2f' % (@price_in_pence / 100.0)}"
+ 	end
 
 end
