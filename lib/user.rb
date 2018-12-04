@@ -22,8 +22,5 @@ class User
     result.any?
   end
 
-end
-
-
 
 end
