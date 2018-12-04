@@ -1,4 +1,4 @@
-require './lib/database_connection.rb'
+require_relative "../../lib/database_connection.rb"
 
 
 def setup_test_database
@@ -14,7 +14,8 @@ def setup_test_database
     id serial PRIMARY KEY,
     username varchar(60) UNIQUE,
     name varchar(60),
-    email varchar UNIQUE
+    email varchar UNIQUE,
+    password varchar
   );
 
   CREATE TABLE spaces (
