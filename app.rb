@@ -2,11 +2,11 @@ require 'sinatra/base'
 
 class Airbnb < Sinatra::Base
   get '/' do
-    'Hello Battle!'
+    erb :login, {:layout => true}
   end
 
   get '/space/add' do
-    erb(:add)
+    erb :add, {:layout => true}
   end
 
   post '/spaces/new' do
@@ -14,7 +14,7 @@ class Airbnb < Sinatra::Base
   end
 
   get '/spaces' do
-    erb(:spaces)
+    erb :spaces
   end
 
   # start the server if ruby file executed directly
