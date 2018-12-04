@@ -2,7 +2,7 @@ CREATE TABLE users (
   id serial PRIMARY KEY,
   username varchar(60) UNIQUE,
   name varchar(60),
-  email varchar
+  email varchar UNIQUE
 );
 
 CREATE TABLE spaces (
