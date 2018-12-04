@@ -1,9 +1,10 @@
 require_relative "../../lib/database_connection.rb"
-
+require 'bcrypt'
 
 def setup_test_database
   Database_connection.connect
 
+  enc_password = BCrypt::Password('password')
 
   Database_connection.sql("DROP TABLE users CASCADE;")
   Database_connection.sql("DROP TABLE spaces CASCADE;")
@@ -43,11 +44,11 @@ def setup_test_database
   );
 
   insert into users (username, name, email, password)
-  values ('david', 'David G', 'david@email.com', 'password1'),
-  ('Michael', 'Michael', 'michael@email.com', 'password2'),
-  ('Nim', 'Nim', 'nim@email.com', 'password3'),
-  ('Abdi', 'Abdi', 'abdi@email.com', 'password4'),
-  ( 'Alex', 'Alex', 'Email@email.com', 'password5');
+  values ('david', 'David G', 'david@email.com', '#{enc_password}'),
+  ('Michael', 'Michael', 'michael@email.com', '#{enc_password}'),
+  ('Nim', 'Nim', 'nim@email.com', '#{enc_password}'),
+  ('Abdi', 'Abdi', 'abdi@email.com', '#{enc_password}'),
+  ( 'Alex', 'Alex', 'Email@email.com', '#{enc_password}');
 
 
   insert into spaces (user_id, property_name, price_in_pence, property_description)
