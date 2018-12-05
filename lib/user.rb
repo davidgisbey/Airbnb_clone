@@ -27,6 +27,6 @@ class User
     if result.any? == false || BCrypt::Password.new(result[0]['password']) != entry_password
       return false
     end
-    User.new( result[0]['id'], result[0]['email'], result[0]['username'])
+    User.new( result[0]['id'], result[0]['email'], result[0]['username'], result[0]['name'])
   end
 end

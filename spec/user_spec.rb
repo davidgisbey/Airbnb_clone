@@ -34,7 +34,7 @@ describe User do
   end
 
   it("returns true when user attempts to register an email that already exists") do
-    user = User.create("test@test.com", "test", "password", databaseClassforCreate)
+    user = User.create("test@test.com", "test", "test" "password", databaseClassforCreate)
     expect(User.email_already_exists?("test@test.com", databaseClassforCreate)).to eq true
   end
 
@@ -43,19 +43,20 @@ describe User do
   end
 
   it("returns false when email address entered incorrectly") do
-    user = User.create("test@test.com", "test", "password")
+    user = User.create("test@test.com", "test", "test" "password")
     expect(User.authenticate("test@incorrect.com", "password")).to eq false
   end
 
   it("returns false when password entered incorrectly") do
-    user = User.create("test@test.com", "test", "password")
+    user = User.create("test@test.com", "test", "test" "password")
     expect(User.authenticate("test@test.com", "incorrect")).to eq false
   end
 
   it("returns user object when email and password entered correctly") do
-    user = User.create("test@test.com", "test", "password")
+    user = User.create("test@test.com", "test", "test" "password")
     user = User.authenticate("test@test.com", "password")
     expect(user.username).to eq "test"
+    expect(user.email).to eq "test@test.com"
     expect(user.email).to eq "test@test.com"
   end
 
