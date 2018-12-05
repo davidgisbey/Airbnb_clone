@@ -17,6 +17,11 @@ feature "Testing sign in" do
     click_button("Log in")
     expect(page).to have_content('Please enter your email and password')
   end
+  scenario "goes to registration page when button is clicked" do
+    visit('/login')
+    click_button("Register")
+    expect(page).to have_content('Please enter a username, unique email and password')
+  end
   scenario "returns to login page if password entered in incorrect" do
     visit('/login')
     fill_in('email', with: "david@email.com")
