@@ -21,6 +21,5 @@ feature 'List Spaces' do
   scenario 'display the email' do
     visit '/spaces'
     expect(page).to have_content "Contact owner"
-  end
-
+  end # This test is failing. Can you fix please?
 end
