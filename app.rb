@@ -25,7 +25,7 @@ class Airbnb < Sinatra::Base
   end
 
   get '/space/add' do
-    erb :add, {:layout => true}
+    erb(:add, {:layout => true})
   end
 
   post '/spaces/new' do

@@ -37,6 +37,7 @@ class Space
 		return spaces
 	end
 
+
 	def get_formatted_price
   	  "£#{'%.2f' % (@price_in_pence / 100.0)}"
  	end
