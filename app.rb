@@ -4,6 +4,7 @@ require './lib/user.rb'
 require './lib/space.rb'
 
 class Airbnb < Sinatra::Base
+  enable :sessions
 
   Database_connection.connect
 
@@ -11,16 +12,23 @@ class Airbnb < Sinatra::Base
     erb(:login, {:layout => true})
   end
 
+  post '/login' do
+    if User.authenticate(params[:email], params[:password]) == false
+      redirect('/')
+    end
+    session[:user] = User.authenticate(params[:email], params[:password])
+    redirect('/spaces') #Redirects
+  end
+
   get '/register' do
-    erb(:register)
+    erb(:register, {:layout => true})
   end
 
   post '/register' do
-    p params
-    if User.email_already_exists?(params[:Email]) == true
+    if User.email_already_exists?(params[:email]) == true
       redirect('/register') # Sinatra flash will have to be added later
     end
-    User.create(params[:Email], params[:Username], params[:Password])
+    session[:user] = User.create(params[:email], params[:username], params[:name], params[:password])
     redirect('/spaces')
   end
 
@@ -29,10 +37,14 @@ class Airbnb < Sinatra::Base
   end
 
   post '/spaces/new' do
-
+    p params
+    p @user_id = session[:user].id
+    Space.create(@user_id, params[:space_name], params[:price_per_night], params[:property_description])
+    redirect('/spaces')
   end
 
   get '/spaces' do
+    @user = session[:user] # Contains user object which has username, id, email
     @spaces = Space.list
     erb(:spaces, {:layout => true})
   end
