@@ -1,8 +1,8 @@
 require 'space'
 
 describe(Space) do
-
-	let(:space) { Space.new(1, 2, 'Buckingham Palace', 245, 'Nice and comfy') }
+	let(:user) { double }
+	let(:space) { Space.new(1, 2, 'Buckingham Palace', 245, 'Nice and comfy', user) }
 
 	describe('properties tests') do
 		it('should store space id') do
