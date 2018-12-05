@@ -1,5 +1,6 @@
 <% @spaces.each do |space| %>
     <span id="space_container">
+      <br />
         <%= space.property_name %>
         <br />
         <%= space.property_description %>
@@ -9,3 +10,6 @@
         <%= space.property_owner.email %>
     </span>
 <% end %>
+<form action="/space/add">
+  <input type="submit" value="Add a space" />
+</form>
