@@ -16,7 +16,7 @@ describe User do
     expect(user.username).to eq "test"
   end
 
-  it "creates a user with id 1" do
+  it "creates a user with id 6" do
     user = User.create("test@test.com", "test", "Abdi", "password")
     expect(user.id).to eq "6"
   end

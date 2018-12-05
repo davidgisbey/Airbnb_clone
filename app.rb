@@ -12,12 +12,7 @@ class Airbnb < Sinatra::Base
     erb(:login, {:layout => true})
   end
 
-  get '/login' do
-    erb(:login)
-  end
-
   post '/login' do
-    p params
     if User.authenticate(params[:email], params[:password]) == false
       redirect('/login')
     end
@@ -26,15 +21,14 @@ class Airbnb < Sinatra::Base
   end
 
   get '/register' do
-    erb(:register)
+    erb(:register, {:layout => true})
   end
 
   post '/register' do
-    p params
-    if User.email_already_exists?(params[:Email]) == true
+    if User.email_already_exists?(params[:email]) == true
       redirect('/register') # Sinatra flash will have to be added later
     end
-    session[:user] = User.create(params[:Email], params[:Username], params[:Name], params[:Password])
+    session[:user] = User.create(params[:email], params[:username], params[:name], params[:password])
     redirect('/spaces')
   end
 
@@ -43,9 +37,6 @@ class Airbnb < Sinatra::Base
   end
 
   post '/spaces/new' do
-    p params
-    # Space.create(user_id, property_name, price_in_pence, property_description)
-
     redirect('/spaces')
   end
 
