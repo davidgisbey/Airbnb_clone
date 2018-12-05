@@ -4,7 +4,7 @@
       <input type="submit" value="Book a Space">
     </form>
     <h2 style="text-align:center;"> List a Space </h2>
-    <form action="/spaces/new" method="post">
+    <form action="/spaces/new" method="POST">
       <div>
         <label for="space_name">
           Name
@@ -18,18 +18,14 @@
       <div>
         <label for="space_description">
           Description<br>
-          <textarea rows="8" cols="100"></textarea>
+          <textarea rows="8" cols="100" name="property description"></textarea>
         </label></div>
         <div>
-          <form>
               <td style="vertical-align:left">
               <label for="available_from">Available from:</label>
               <input type="date" id="available_from" name="available_from">
-          </form>
-          <form>
             <label for="available_to">&nbsp&nbsp&nbsp&nbspAvailable to:</label>
-            <input type="date" id="available_to" name="available_to"></>
-          </form>
+            <input type="date" id="available_to" name="available_to">
       </div>
       <div style="text-align:center">
         <input type="submit" value="List my Space">
