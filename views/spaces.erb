@@ -7,11 +7,9 @@
         <br />
         <%= space.get_formatted_price %>
         <br />
-        <a href= "mailto:<%= space.property_owner.email %>"><%= space.property_owner.email %> </a>
+        <a href ="mailto: <%= space.property_owner.email %>"><%= space.property_owner.email %> </a>
     </span>
 <% end %>
 <form action="/space/add">
   <input type="submit" value="Add a space" />
 </form>
-
-<!-- fsds -->
