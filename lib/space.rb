@@ -19,8 +19,9 @@ class Space
 			RETURNING id, user_id, property_name,
 			price_in_pence, property_description  ")
 
-			Space.new(query_result[0]['id'].to_i, query_result[0]['user_id'].to_i, query_result[0]['property_name'],
+			space = Space.new(query_result[0]['id'].to_i, query_result[0]['user_id'].to_i, query_result[0]['property_name'],
 			query_result[0]['price_in_pence'].to_i, query_result[0]['property_description'], User.find(query_result[0]['user_id'].to_i ))
+			return space
 	end
 
 	def self.list

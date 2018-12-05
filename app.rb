@@ -29,7 +29,8 @@ class Airbnb < Sinatra::Base
   end
 
   post '/spaces/new' do
-
+    p params
+    redirect('/spaces')
   end
 
   get '/spaces' do
