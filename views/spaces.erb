@@ -7,7 +7,7 @@
         <br />
         <%= space.get_formatted_price %>
         <br />
-        <%= space.property_owner.email %>
+        <a href= "mailto:<%= space.property_owner.email %>"><%= space.property_owner.email %> </a>
     </span>
 <% end %>
 <form action="/space/add">

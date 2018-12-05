@@ -18,8 +18,8 @@ feature 'List Spaces' do
     expect(page).to have_content "stay for a night underneath the stockport"
 	end
 
-  scenario 'display the email' do
+  scenario 'have the ability to email the owner of the space' do
     visit '/spaces'
-    expect(page).to have_content "Contact owner"
+    expect(page).to have_xpath("//a[contains(@href,'mailto:david@email.com')]")
   end # This test is failing. Can you fix please?
 end
