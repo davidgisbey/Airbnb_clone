@@ -34,7 +34,6 @@ class Space
 			User.find(space['user_id'].to_i)
 			)
 		end
-		return spaces
 	end
 
 
