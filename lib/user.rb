@@ -27,7 +27,6 @@ class User
   def self.find(id)
     result = Database_connection.sql("SELECT id, email, username, name FROM users WHERE id = #{id}")
     user = User.new(result[0]['id'], result[0]['email'], result[0]['username'], result[0]['name'])
-    user
   end
 
 end
