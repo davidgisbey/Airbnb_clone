@@ -1,9 +1,11 @@
 <% @spaces.each do |space| %>
-    <div id="space_container">
+    <span id="space_container">
         <%= space.property_name %>
         <br />
         <%= space.property_description %>
         <br />
         <%= space.get_formatted_price %>
-    </div>
+        <br />
+        <%= space.property_owner.email %>
+    </span>
 <% end %>
