@@ -1,5 +1,6 @@
 <% @spaces.each do |space| %>
     <span id="space_container">
+      <br />
         <%= space.property_name %>
         <br />
         <%= space.property_description %>
@@ -10,5 +11,5 @@
     </span>
 <% end %>
 <form action="/space/add">
-  <input type="Submit" name="Add a space" value="Add a space">
+  <input type="submit" value="Add a space" />
 </form>
