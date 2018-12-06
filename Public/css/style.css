@@ -26,6 +26,8 @@ body {
   justify-content: center;
       height:100%;
     width: 100%;
+      padding:0;
+      margin: 0;
 }
 
 .header{
@@ -163,4 +165,71 @@ input[type=submit]:hover {
   width:100%;
   font-size: 20px; 
   padding: 2px;
+}
+
+/* Login page styling */
+
+
+#login_page {
+  display: flex;
+  flex-direction:column;
+  height: 100%;
+  width:100%;
+  color:black;
+  align-items: center;
+  justify-content: center;
+}
+
+#login_page_wrapper{
+display: flex;
+flex-direction:column;
+border: 2px solid;
+width:35%;
+color:black;
+border-color: rgba(	72, 72, 72, 0.1);
+background-color:rgba(128,128,0,0.5);
+}
+
+
+#login_page form {
+  padding:0;
+  margin:0;
+    display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  width:100%;
+  align-content: center;
+  justify-content: center;
+}
+
+#login_page #login_title_container {
+  border:1px solid black;
+  width:100%;
+}
+
+#login_wrapper input[type=text] {
+  font-size:40px;
+  margin: 10px;
+  border: 2px solid;
+  border-color: rgba(	72, 72, 72, 0.1);
+  border-radius: 10px;
+  padding:5px;
+}
+
+#login_wrapper .submit_wrapper{
+  display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  width:100%;
+  align-items: center;
+}
+
+#login_wrapper input[type=submit] {
+  font-size:40px;
+  border: 2px solid;
+  border-color: rgba(	72, 72, 72, 0.1);
+  border-radius: 10px;
+  padding:5px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
