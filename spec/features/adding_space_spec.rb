@@ -6,7 +6,6 @@ feature "Adding a space" do
     click_button("Log in")
     expect(current_path).to eq('/spaces')
     click_button("Add a space")
-
     expect(page).to have_content("List a Space")
   end
   scenario "Adding a space" do
