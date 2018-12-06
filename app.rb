@@ -2,7 +2,7 @@ require 'sinatra/base'
 require './lib/database_connection.rb'
 require './lib/user.rb'
 require './lib/space.rb'
-
+require './lib/availability.rb'
 class Airbnb < Sinatra::Base
   enable :sessions
 
@@ -37,9 +37,17 @@ class Airbnb < Sinatra::Base
   end
 
   post '/spaces/new' do
-    p params
-    p @user_id = session[:user].id
-    Space.create(@user_id, params[:space_name], params[:price_per_night], params[:property_description])
+    # p params
+    # space_name: My house
+    # price_per_night: 200
+    # start: 12/12/2018
+    # end: 12/21/2018
+    p session[:user]
+    @user_id = session[:user].id.to_i
+    new_space = Space.create(@user_id, params[:space_name], params[:price_per_night], params[:property_description])
+    Availability.update(new_space.id, params[:start], params[:end])
+    p new_space
+
     redirect('/spaces')
   end
 
