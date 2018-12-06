@@ -1,31 +1,30 @@
-    <form style="text-align:right" action="/spaces" method="get">
-      <input type="submit" value="Book a Space">
-    </form>
-    <h2 style="text-align:center;"> List a Space </h2>
-    <form action="/spaces/new" method="POST">
-      <div>
-        <label for="space_name">
-          Name
-          <input type="text" name="space_name">
-        </label></div>
-      <div>
-        <label for="price_per_night">
-          Price per night (£)
-          <input type="text" name="price_per_night">
-        </label></div>
-      <div>
-        <label for="space_description">
-          Description<br>
-          <textarea rows="8" cols="100" name="property_description"></textarea>
-        </label></div>
-        <div>
-              <td style="vertical-align:left">
-              <label for="available_from">Available from:</label>
-              <input type="date" id="available_from" name="available_from">
-            <label for="available_to">&nbsp&nbsp&nbsp&nbspAvailable to:</label>
-            <input type="date" id="available_to" name="available_to">
+<div id='add_page'>
+
+  <div id='post_property_link'>
+    <a href="/spaces">Book a Space</a>
+    </div>
+
+<form action="/spaces/new" id="new_space" method="POST">
+    <div class='form_container_middle'>
+
+      <input type="text" name="space_name" placeholder="Name of property">
+      <input type="text" name="price_per_night" placeholder="Price per night (£)">
+
+      <div id="form_container_property_description">
+        <textarea name="name" rows="15" cols="75" placeholder="Property description ..."></textarea>
+
+      <div class='form_container_availability'>
+        <label for="available_from">Available from:</label>
+          <input type="date" id="available_from" name="available_from">
+        <label for="available_to">&nbsp&nbsp&nbsp&nbspAvailable to:</label>
+          <input type="date" id="available_to" name="available_to">
       </div>
-      <div style="text-align:center">
+
+
+        <div id="form_container_list_property">
         <input type="submit" value="List my space">
-      </div>
-    </form>
+        </div>
+
+    </div>
+  </form>
+</div>
