@@ -56,7 +56,6 @@ color:black;
 display: flex;
 flex-wrap: wrap;
 flex-direction:column;
-border: 2px solid;
 border-color: rgba(	72, 72, 72, 0.1);
 border-radius: 10px;
 }
@@ -94,7 +93,6 @@ input[type=submit]:hover {
 #submit_container {
   width:100%;
   text-align: center;
-
 }
 
 /*  add page styling  */
@@ -199,6 +197,7 @@ input[type=submit]:hover {
 #spaces_page #spaces_page_wrapper{
   width:35%;
   border-radius:10px;
+  background-color:rgba(128,128,0,0.5);
   padding:10px;
   margin-bottom:30px;
   margin-top:50px;
