@@ -98,7 +98,6 @@ input[type=submit]:hover {
 /*  add page styling  */
 
   #add_page {
-  background-color: rgba(	128,128,0,0.5);
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -158,6 +157,7 @@ input[type=submit]:hover {
   margin: 15px;
   font-size: 15px;
   font-weight: bold;
+  color: DimGray ;
 }
 
 #add_page #form_container_list_property {
