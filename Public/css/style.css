@@ -6,8 +6,8 @@ font-family: 'Slabo', serif;
 
 html, body {
     height:100%;
-    overflow: auto;
     width: 100%;
+    overflow: auto;
 }
 
 body {
@@ -16,9 +16,23 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   display:flex;
-  align-items: center;
+  flex-wrap: wrap;
+}
+
+#pages {
+    display:flex;
+  flex-wrap: wrap;
+    align-items: center;
   justify-content: center;
-  
+      height:100%;
+    width: 100%;
+}
+
+.header{
+  width:100%;
+  height:5%;
+  background-color:white;
+  border-bottom: 5px solid black;
 }
 
 #register_page {
@@ -104,7 +118,7 @@ input[type=submit]:hover {
 }
 
 #spaces_page #spaces_page_wrapper{
-  width:40%;
+  width:35%;
   border-radius:10px;
   background-color:rgba(128,128,0,0.5);
   padding:10px;
@@ -122,4 +136,31 @@ input[type=submit]:hover {
   padding: 0 10px 10px 10px;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+#spaces_page #space_title_container{
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  border-bottom: 1px solid black;
+  position: relative;
+}
+
+#space_title_container #property_name {
+  width:70%;
+  font-size:25px;
+}
+
+#space_title_container #email {
+  width:30%;
+  text-align: right;
+  position: absolute;
+  right:0;
+  bottom: 0;
+}
+
+#space_description_container {
+  width:100%;
+  font-size: 20px; 
+  padding: 2px;
 }

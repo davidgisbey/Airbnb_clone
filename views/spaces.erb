@@ -10,14 +10,18 @@
   <div id="spaces_box">
     <% @spaces.each do |space| %>
         <div id="space_container">
-          <br />
-            <%= space.property_name %>
-            <br />
-            <%= space.property_description %>
-            <br />
-            <%= space.get_formatted_price %>
-            <br />
-            <a href ="mailto: <%= space.property_owner.email %>"><%= space.property_owner.email %> </a>
+          <div id='space_title_container'>
+            <div id='property_name'>
+                <%= space.property_name %>
+                <%= space.get_formatted_price %>
+            </div>
+            <div id="email">
+              <a href ="mailto: <%= space.property_owner.email %>"><%= space.property_owner.email %> </a>
+            </div>
+          </div>
+          <div id='space_description_container'>
+          <%= space.property_description %>
+          </div>
         </div>
     <% end %>
   </div>
