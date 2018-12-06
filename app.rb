@@ -21,12 +21,14 @@ class Airbnb < Sinatra::Base
   end
 
   get '/register' do
+    @email_taken = session[:register_message]
     erb(:register, {:layout => true})
   end
 
   post '/register' do
     if User.email_already_exists?(params[:email]) == true
-      redirect('/register') # Sinatra flash will have to be added later
+      session[:register_message] = "Sorry, but that email address is already taken"
+      redirect('/register')
     end
     session[:user] = User.create(params[:email], params[:username], params[:name], params[:password])
     redirect('/spaces')
