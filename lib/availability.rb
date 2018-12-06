@@ -41,5 +41,13 @@ class Availability
     @dates.first
   end
 
+  def unavailable_days
+    days = []
+    min_date.upto(max_date) do |date|
+      days.push(date) unless @dates.include?(date)
+    end
+    days
+  end
+
 
 end

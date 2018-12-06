@@ -63,7 +63,7 @@ def setup_test_database
   insert into bookings (space_id, user_id, start_date, end_date, accepted)
   values( 1, 3, '2019-01-10', '2019-01-13', NULL),
              ( 2, 5, '2019-11-01', '2019-11-20', TRUE),
-             (2,5, '2019-05-1', '2019-05-10', FALSE);
-             ")
+             (2,5, '2019-05-1', '2019-05-10', FALSE),
+             (2,5,'2019-01-03', '2019-01-03', TRUE);")
 
 end
