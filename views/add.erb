@@ -5,7 +5,7 @@
     </form>
 
     <h2 style="text-align:center;"> List a Space </h2>
-    <form action="/spaces/new" method="POST">
+    <form action="/spaces/new" method="POST" id="adding_space">
       <div>
         <label for="space_name"> Name <input type="text" name="space_name"></label>
       </div>
@@ -20,7 +20,7 @@
       <div>
         <label for="space_description">
           Description<br>
-          <textarea rows="8" cols="100"></textarea>
+          <textarea rows="8" cols="100" id="space_description"></textarea>
         </label>
       </div>
 

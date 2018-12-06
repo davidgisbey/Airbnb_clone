@@ -20,6 +20,6 @@ feature 'List Spaces' do
 
   scenario 'display the email' do
     visit '/spaces'
-    expect(page).to have_content "Contact owner"
+    expect(page).to have_content "michael@email.com"
   end # This test is failing. Can you fix please?
 end

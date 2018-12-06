@@ -17,9 +17,9 @@ feature "Adding a space" do
     click_button("Add a space")
     fill_in('space_name', with: "Tent")
     fill_in('price_per_night', with: "100")
-    fill_in('property_description', with: "This is a nice tent to live in.")
-    fill_in('available_from', with: "2018-11-01")
-    fill_in('available_to', with: "2018-11-13")
+    fill_in('space_description', with: "This is a nice tent to live in.")
+    fill_in('start', with: "2018-11-01")
+    fill_in('end', with: "2018-11-13")
     click_button("List my space")
     expect(page).to have_content("This is a nice tent to live in.")
   end

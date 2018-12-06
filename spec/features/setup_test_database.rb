@@ -58,7 +58,7 @@ def setup_test_database
   insert into availability (space_id, start_date, end_date)
   values( 1, '2019-01-01', '2019-02-28'),
        ( 1, '2019-03-14', '2019-03-24'),
-       ( 2, '2019-01-02', '2019-12-01');
+       ( 2, '2019-01-02', '2019-01-04');
 
   insert into bookings (space_id, user_id, start_date, end_date, accepted)
   values( 1, 3, '2019-01-10', '2019-01-13', NULL),
