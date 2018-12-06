@@ -1,4 +1,4 @@
-* { 
+* {
 margin: 0;
 padding: 0;
 font-family: 'Slabo', serif;
@@ -11,7 +11,7 @@ html, body {
 }
 
 body {
-  background-image: url('../images/bg-image.jpg');
+  background-image: url('https://designingidea.com/wp-content/uploads/2016/09/beautiful-living-room-with-cream-color-furniture-small-portable-home-bar-and-city-skyline-views.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -58,7 +58,6 @@ flex-wrap: wrap;
 flex-direction:column;
 border: 2px solid;
 border-color: rgba(	72, 72, 72, 0.1);
-background-color:rgba(128,128,0,0.5);
 border-radius: 10px;
 }
 
@@ -120,7 +119,6 @@ input[type=submit]:hover {
 #spaces_page #spaces_page_wrapper{
   width:35%;
   border-radius:10px;
-  background-color:rgba(128,128,0,0.5);
   padding:10px;
   margin-bottom:30px;
   margin-top:50px;
@@ -161,6 +159,6 @@ input[type=submit]:hover {
 
 #space_description_container {
   width:100%;
-  font-size: 20px; 
+  font-size: 20px;
   padding: 2px;
 }
