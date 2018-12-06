@@ -95,6 +95,85 @@ input[type=submit]:hover {
   text-align: center;
 }
 
+/*  add page styling  */
+
+  #add_page {
+  background-color: rgba(	128,128,0,0.5);
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:column;
+  align-content: center;
+  width:34%;
+  color:black;
+  padding:10px;
+}
+
+#add_page .form_container_middle input[type=text] {
+  font-size:40px;
+  margin: 10px;
+  border-color: rgba(	72, 72, 72, 0.1);
+  border-radius: 10px;
+  padding:20px;
+}
+
+#add_page #post_property_link {
+  width: 20%;
+  font-size:15px;
+  padding: 15px;
+  padding-right: 25px;
+  font-weight:normal;
+  text-align: right;
+  justify-content: top;
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+#add_page #post_property_link a {
+  text-decoration: none;
+}
+
+#add_page input[type=submit] {
+  font-size:20px;
+  width:50%;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border-color: rgba(	72, 72, 72, 0.1);
+}
+
+#add_page textarea {
+  font-size:20px;
+  text-align: left;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin: 15px;
+  box-sizing: border-box;
+  resize: none;
+  border-color: rgba(	72, 72, 72, 0.1);
+}
+
+#add_page #form_container_availability {
+  margin: 15px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#add_page #form_container_list_property {
+  margin: 15px;
+  text-align: center;
+  justify-content: center;
+}
+
+#add_page #form_container_property_description {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 20;
+  justify-content: center;
+}
+
 
 
 
