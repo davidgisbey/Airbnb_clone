@@ -98,7 +98,11 @@ input[type=submit]:hover {
 
 }
 
+/*  add page styling  */
+
   #add_page {
+  background-color: rgba(	128,128,0,0.5);
+  border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
   flex-direction:column;
@@ -120,7 +124,8 @@ input[type=submit]:hover {
 #add_page #post_property_link {
   width: 20%;
   font-size:15px;
-  padding: 5px;
+  padding: 15px;
+  padding-right: 25px;
   font-weight:normal;
   text-align: right;
   justify-content: top;
@@ -144,16 +149,16 @@ input[type=submit]:hover {
 
 #add_page input[type=textarea] {
   font-size:20px;
-  width:35%;
   text-align: center;
   border-radius: 10px;
   margin-bottom: 10px;
   margin: 15px;
-
 }
 
 #add_page #form_container_availability {
   margin: 15px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 #add_page #form_container_list_property {
@@ -234,6 +239,6 @@ input[type=submit]:hover {
 
 #space_description_container {
   width:100%;
-  font-size: 20px; 
+  font-size: 20px;
   padding: 2px;
 }
