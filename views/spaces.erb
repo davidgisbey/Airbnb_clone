@@ -8,6 +8,9 @@
         <%= space.get_formatted_price %>
         <br />
         <%= space.property_owner.email %>
+        <form action="/spaces/book/<%=space.id%>">
+          <input type="submit" name="Book <%= space.property_name %>" value="Book this place" />
+        </form>
     </span>
 <% end %>
 <form action="/space/add">

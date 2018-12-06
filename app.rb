@@ -3,6 +3,8 @@ require './lib/database_connection.rb'
 require './lib/user.rb'
 require './lib/space.rb'
 require './lib/availability.rb'
+require 'json'
+
 class Airbnb < Sinatra::Base
   enable :sessions
 
@@ -33,21 +35,12 @@ class Airbnb < Sinatra::Base
   end
 
   get '/space/add' do
+
     erb(:add, {:layout => true})
   end
 
   post '/spaces/new' do
-    # p params
-    # space_name: My house
-    # price_per_night: 200
-    # start: 12/12/2018
-    # end: 12/21/2018
-    p session[:user]
-    @user_id = session[:user].id.to_i
-    new_space = Space.create(@user_id, params[:space_name], params[:price_per_night], params[:property_description])
-    Availability.update(new_space.id, params[:start], params[:end])
-    p new_space
-
+    p params
     redirect('/spaces')
   end
 
@@ -55,6 +48,21 @@ class Airbnb < Sinatra::Base
     @user = session[:user] # Contains user object which has username, id, email
     @spaces = Space.list
     erb(:spaces, {:layout => true})
+  end
+
+  get '/spaces/book/:id' do
+    p params
+    @space_id = params[:space_id]
+    p @start_adate = "12/12/2018" # Start available date from db
+    p @end_adate = "01/01/2019" # End available date from db
+    p @booked_dates = "13/12/2018.14/12/2018" # Booked dates from db
+    erb(:book, {:layout => true})
+    # This will search by space id for booked dates params
+  end
+
+  post '/spaces/book/:id' do
+    p params
+    redirect('/spaces')
   end
 
   # start the server if ruby file executed directly
