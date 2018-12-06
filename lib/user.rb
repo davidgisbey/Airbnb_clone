@@ -6,7 +6,7 @@ class User
   attr_reader :id ,:username , :email, :name
 
   def initialize(id, email, username, name)
-    @id = id
+    @id = id.to_i
     @email = email
     @username = username
     @name = name

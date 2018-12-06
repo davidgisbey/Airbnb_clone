@@ -7,7 +7,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative './features/setup_test_database'
-
+require 'date'
 
 # tell Capybara about our app class
 Capybara.app = Airbnb
