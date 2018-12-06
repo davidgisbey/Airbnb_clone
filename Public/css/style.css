@@ -154,6 +154,7 @@ input[type=submit]:hover {
   margin: 15px;
   box-sizing: border-box;
   resize: none;
+  border-color: rgba(	72, 72, 72, 0.1);
 }
 
 #add_page #form_container_availability {
