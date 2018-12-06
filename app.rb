@@ -35,17 +35,18 @@ class Airbnb < Sinatra::Base
   end
 
   get '/space/add' do
+    redirect('/login') unless session[:user]
     erb(:add, {:layout => true})
   end
 
   post '/spaces/new' do
-    p params
     p @user_id = session[:user].id
     Space.create(@user_id, params[:space_name], params[:price_per_night], params[:property_description])
     redirect('/spaces')
   end
 
   get '/spaces' do
+    redirect('/login') unless session[:user]
     @user = session[:user] # Contains user object which has username, id, email
     @spaces = Space.list
     erb(:spaces, {:layout => true})
