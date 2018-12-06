@@ -115,7 +115,6 @@ input[type=submit]:hover {
 #add_page .form_container_middle input[type=text] {
   font-size:40px;
   margin: 10px;
-  border: 2px solid black;
   border-color: rgba(	72, 72, 72, 0.1);
   border-radius: 10px;
   padding:20px;
@@ -147,12 +146,14 @@ input[type=submit]:hover {
   border-color: rgba(	72, 72, 72, 0.1);
 }
 
-#add_page input[type=textarea] {
+#add_page textarea {
   font-size:20px;
-  text-align: center;
+  text-align: left;
   border-radius: 10px;
   margin-bottom: 10px;
   margin: 15px;
+  box-sizing: border-box;
+  resize: none;
 }
 
 #add_page #form_container_availability {
