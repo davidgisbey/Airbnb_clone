@@ -57,15 +57,17 @@ class Airbnb < Sinatra::Base
     p @space_id = params[:id]
     availability_space = Availability.retrieve(@space_id)
     bookings = Bookings.bookings_for_space_id(@space_id)
-    @start_adate = availability_space.min_date
-    @end_adate = availability_space.max_date
-    @booked_dates = Calendar_prep.unavailable_dates(availability_space, bookings)
+    @start_adate = availability_space.min_date.to_s
+    @end_adate = availability_space.max_date.to_s
+    @booked_dates = Calendar_prep.unavailable_dates(bookings, availability_space)
+
     erb(:book, {:layout => true})
-    # This will search by space id for booked dates params
   end
 
   post '/spaces/book/:id' do
-    @user = session[:user]
+    p @user = session[:user]
+    p @space_id = params[:id]
+    Bookings.create(@space_id, @user.id, params[:start], params[:end])
     p params
     redirect('/spaces')
   end
