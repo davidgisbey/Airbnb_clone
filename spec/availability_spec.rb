@@ -31,5 +31,10 @@ describe Availability do
     date8 = Date.parse('2019-01-09')
     expect(available_dates.dates).to eq([date1, date2, date3, date4, date5, date6, date7, date8])
   end
+  it "returns the days inbetween conscecutive start/end dates" do
+    available_dates = Availability.retrieve(1)
+    day = Date.parse('2019-01-06')
+    expect(available_dates.unavailable_days).to eq [day]
+  end
 
 end

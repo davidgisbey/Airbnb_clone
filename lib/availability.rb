@@ -49,5 +49,4 @@ class Availability
     end
     days
   end
-
 end
