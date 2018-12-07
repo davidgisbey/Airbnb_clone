@@ -56,9 +56,8 @@ def setup_test_database
    (2, 'The Stockport viaduct', 20, 'stay for a night underneath the stockport viaduct in Michael''s home town. Only 20p!');
 
   INSERT INTO availability (space_id, start_date, end_date)
-  VALUES( 1, '2019-01-01', '2019-02-28'),
-       ( 1, '2019-03-14', '2019-03-24'),
-       ( 2, '2019-01-02', '2019-01-04');
+  VALUES( 1, '2019-01-07', '2019-01-09'),
+       ( 1, '2019-01-01', '2019-01-05');
 
   INSERT INTO bookings (space_id, user_id, start_date, end_date, accepted)
   VALUES( 1, 3, '2019-01-10', '2019-01-13', NULL),
