@@ -1,50 +1,39 @@
 <!DOCTYPE html>
+<p hidden id="start_date"><%=@start_adate%></p>
+<p hidden id="end_date"><%=@end_adate%></p>
+<p hidden id="booked_dates"><%=@booked_dates%></p>
+<form style="text-align:right" action="/spaces" method="get">
+  <input type="submit" value="Return to spaces">
+</form>
 
-    <form style="text-align:right" action="/spaces" method="get">
-      <input type="submit" value="Return to spaces">
-    </form>
-
-    <h2 style="text-align:center;"> List a Space </h2>
-    <form action="/spaces/new" method="POST">
-      <div>
-        <label for="space_name"> Name <input type="text" name="space_name"></label>
-      </div>
-
-      <div>
-        <label for="price_per_night">
-          Price per night (£)
-          <input type="text" name="price_per_night">
-        </label>
-      </div>
-
-      <div>
-        <label for="property_description">
-          Description<br>
-          <textarea rows="8" cols="100" name="property_description"></textarea>
-        </label>
-      </div>
-
-      <div style="text-align:center">
-        <input type="submit" value="List my space">
-      </div>
-
+    <h2 style="text-align:center;"> Book this Space </h2>
+    <form action="/spaces/book/<%= @space_id %>" method="POST">
       <div class="input-group input-daterange" id ="sandbox-container" data-provide="datepicker">
         <input type="text" class="input-sm form-control" name="start" />
         <span class="input-group-addon">to</span>
         <input type="text" class="input-sm form-control" name="end" />
+      </div>
+      <div style="text-align:center">
+        <input type="submit" value="Book this space">
       </div>
 
     </form>
 
     <script>
       $(document).ready(function() {
+        var booked_dates = $("#booked_dates")[0].innerHTML.split(".")
+        var start_date = $("#start_date")[0].innerHTML
+        var end_date = $("#end_date")[0].innerHTML
         $('#sandbox-container').datepicker({
-          format: "dd/mm/yyyy",
+          format: "dd-mm-yyyy",
           timepicker: true,
+          startDate: start_date,
+          endDate: end_date,
           maxViewMode: 2,
           clearBtn: true,
           multidate: false,
           todayHighlight: true,
+          datesDisabled: booked_dates,
           toggleActive: false
         });
 });
@@ -54,4 +43,4 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="../lib/bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.min.js"></script>
+<script src="../../lib/bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.min.js"></script>

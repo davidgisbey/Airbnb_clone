@@ -5,7 +5,7 @@ feature "Testing register" do
     fill_in('Name', with: "hello")
     fill_in('Email', with: "test")
     fill_in('Password', with: "password")
-    click_button("Submit")
+    click_button("Register")
     expect(current_path).to eq('/spaces')
   end
 end
