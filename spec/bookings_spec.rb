@@ -19,12 +19,12 @@ describe Bookings do
   end
   it "self.bookings_for_space_id returns all bookings for a space id" do
     bookings = Bookings.bookings_for_space_id(2)
-    date1 = Date.parse('2019-11-18')
-    date2 = Date.parse('2019-11-19')
-    date3 = Date.parse('2019-11-20')
-    date4 = Date.parse('2019-05-08')
-    date5 = Date.parse('2019-05-09')
-    date6 = Date.parse('2019-05-10')
+    date1 = Date.parse('2019-01-18')
+    date2 = Date.parse('2019-01-19')
+    date3 = Date.parse('2019-01-20')
+    date4 = Date.parse('2019-01-08')
+    date5 = Date.parse('2019-01-09')
+    date6 = Date.parse('2019-01-10')
     date7 = Date.parse('2019-01-03')
     date8 = Date.parse('2019-01-04')
     expect(bookings.length).to eq 3
