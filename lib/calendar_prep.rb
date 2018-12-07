@@ -11,4 +11,9 @@ class Calendar_prep
     unavailable_string_array = booked_dates.map { |date| date.to_s }
     unavailable_string_array.join(', ')
   end
+
+  def self.available_dates_disabled(availability)
+    unavailable_string_array = availability.dates.map { |date| date.to_s }
+    unavailable_string_array.join(', ')
+  end
 end
