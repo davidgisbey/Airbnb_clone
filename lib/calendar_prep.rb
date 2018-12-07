@@ -9,11 +9,11 @@ class Calendar_prep
     booked_dates += availability.unavailable_days
     booked_dates.sort!
     unavailable_string_array = booked_dates.map { |date| date.to_s }
-    unavailable_string_array.join(', ')
+    unavailable_string_array.join('.')
   end
 
   def self.available_dates_disabled(availability)
     unavailable_string_array = availability.dates.map { |date| date.to_s }
-    unavailable_string_array.join(', ')
+    unavailable_string_array.join('.')
   end
 end

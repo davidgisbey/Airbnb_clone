@@ -1,4 +1,5 @@
 require "date"
+require_relative "./database_connection.rb"
 
 class Bookings
 
@@ -21,6 +22,9 @@ class Bookings
     query_result = Database_connection.sql("SELECT *
       FROM bookings
       WHERE id = #{id};")
+      if query_result.any? == false
+        return Bookings.new(0, 0, 0, [])
+      end
     booked_dates_array = Bookings.list_days_in_booking(query_result[0]["start_date"], query_result[0]["end_date"])
     booking = Bookings.new(query_result[0]['id'], query_result[0]['space_id'], query_result[0]['user_id'], booked_dates_array)
   end

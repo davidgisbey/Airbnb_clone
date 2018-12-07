@@ -3,7 +3,8 @@ require './lib/database_connection.rb'
 require './lib/user.rb'
 require './lib/space.rb'
 require './lib/availability.rb'
-require 'json'
+require './lib/bookings.rb'
+require './lib/calendar_prep.rb'
 
 class Airbnb < Sinatra::Base
   enable :sessions
@@ -47,17 +48,18 @@ class Airbnb < Sinatra::Base
   post '/spaces/new' do
     @user = session[:user]
     p params
+    p @space = Space.create(@user.id, params[:name], params[:price], params[:property_description])
+    Availability.update(@space.id, params[:start], params[:end])
     redirect('/spaces')
   end
 
   get '/spaces/book/:id' do
-
-    p params
     p @space_id = params[:id]
-
-    @start_adate = "12-12-2018" # Start available date from db
-    @end_adate = "01-01-2019" # End available date from db
-    @booked_dates = "13-12-2018.14-12-2018" # Booked dates from db
+    availability_space = Availability.retrieve(@space_id)
+    bookings = Bookings.bookings_for_space_id(@space_id)
+    @start_adate = availability_space.min_date
+    @end_adate = availability_space.max_date
+    @booked_dates = Calendar_prep.unavailable_dates(availability_space, bookings)
     erb(:book, {:layout => true})
     # This will search by space id for booked dates params
   end
