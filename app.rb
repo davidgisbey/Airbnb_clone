@@ -34,33 +34,36 @@ class Airbnb < Sinatra::Base
     redirect('/spaces')
   end
 
+  get '/spaces' do
+    @spaces = Space.list
+    erb(:spaces, {:layout => true})
+  end
+
   get '/space/add' do
 
     erb(:add, {:layout => true})
   end
 
   post '/spaces/new' do
+    @user = session[:user]
     p params
     redirect('/spaces')
   end
 
-  get '/spaces' do
-    @user = session[:user] # Contains user object which has username, id, email
-    @spaces = Space.list
-    erb(:spaces, {:layout => true})
-  end
-
   get '/spaces/book/:id' do
+
     p params
-    @space_id = params[:space_id]
-    p @start_adate = "12-12-2018" # Start available date from db
-    p @end_adate = "01-01-2019" # End available date from db
-    p @booked_dates = "13-12-2018.14-12-2018" # Booked dates from db
+    p @space_id = params[:id]
+
+    @start_adate = "12-12-2018" # Start available date from db
+    @end_adate = "01-01-2019" # End available date from db
+    @booked_dates = "13-12-2018.14-12-2018" # Booked dates from db
     erb(:book, {:layout => true})
     # This will search by space id for booked dates params
   end
 
   post '/spaces/book/:id' do
+    @user = session[:user]
     p params
     redirect('/spaces')
   end

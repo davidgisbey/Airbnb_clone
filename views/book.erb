@@ -7,7 +7,7 @@
 </form>
 
     <h2 style="text-align:center;"> Book this Space </h2>
-    <form action="/spaces/new" method="POST">
+    <form action="/spaces/book/<%=@space_id%>" method="POST">
       <div class="input-group input-daterange" id ="sandbox-container" data-provide="datepicker">
         <input type="text" class="input-sm form-control" name="start" />
         <span class="input-group-addon">to</span>
