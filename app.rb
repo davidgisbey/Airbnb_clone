@@ -53,9 +53,9 @@ class Airbnb < Sinatra::Base
   get '/spaces/book/:id' do
     p params
     @space_id = params[:space_id]
-    p @start_adate = "12/12/2018" # Start available date from db
-    p @end_adate = "01/01/2019" # End available date from db
-    p @booked_dates = "13/12/2018.14/12/2018" # Booked dates from db
+    p @start_adate = "12-12-2018" # Start available date from db
+    p @end_adate = "01-01-2019" # End available date from db
+    p @booked_dates = "13-12-2018.14-12-2018" # Booked dates from db
     erb(:book, {:layout => true})
     # This will search by space id for booked dates params
   end
