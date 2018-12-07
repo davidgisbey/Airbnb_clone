@@ -32,7 +32,7 @@ class Availability
       end
     end
     new_availability = Availability.new(space_id, dates.sort)
-  end
+  end # This is stored as @available_dates and we can get start, and end by calling min and max date methods
 
   def max_date
     @dates.last
