@@ -41,22 +41,18 @@ class Airbnb < Sinatra::Base
   end
 
   get '/space/add' do
-
     erb(:add, {:layout => true})
   end
 
   post '/spaces/new' do
     @user = session[:user]
-    p params
-    p @space = Space.create(@user.id, params[:name], params[:price], params[:property_description])
-    p Availability.update(@space.id, params[:start], params[:end])
-    p Availability.retrieve(@space.id)
-    # Calendar_prep.available_dates_disabled(Availability.retrieve(@space.id))
+    @space = Space.create(@user.id, params[:name], params[:price], params[:property_description])
+    Availability.update(@space.id, params[:start], params[:end])
     redirect('/spaces')
   end
 
   get '/spaces/book/:id' do
-    p @space_id = params[:id]
+    @space_id = params[:id]
     availability_space = Availability.retrieve(@space_id)
     bookings = Bookings.bookings_for_space_id(@space_id)
     @start_adate = availability_space.min_date.to_s
@@ -67,10 +63,9 @@ class Airbnb < Sinatra::Base
   end
 
   post '/spaces/book/:id' do
-    p @user = session[:user]
-    p @space_id = params[:id]
+    @user = session[:user]
+    @space_id = params[:id]
     Bookings.create(@space_id, @user.id, params[:start], params[:end])
-    p params
     redirect('/spaces')
   end
 
