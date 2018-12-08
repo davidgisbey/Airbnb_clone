@@ -16,3 +16,8 @@
     </div>
   </div>
 </div>
+<% if @error_message %>
+  <div id="error_message" style="border: 2px solid green;">
+  <%= @error_message %>
+  </div>
+<% end %>

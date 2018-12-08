@@ -3,13 +3,18 @@
   <div class='form_container_middle'>
 
     <form action="/register" method="POST">
+      <input type="text" name="username" placeholder="User Name" />
       <input type="text" name="name" placeholder="Name" />
-      <input type="text" name="Username" placeholder="User Name" />
-      <input type="text" name="Email" placeholder="Email" />
-      <input type="password" name="Password" placeholder="Password" />
+      <input type="text" name="email" placeholder="Email" />
+      <input type="password" name="password" placeholder="Password" />
     <div id='submit_container'>
       <input type="submit" value="Register" />
     </div>
     </form>
   </div>
 </div>
+<% if @email_taken %>
+  <div id="error_message" style="border: 2px solid green;">
+  <%= @email_taken %>
+  </div>
+<% end %>
