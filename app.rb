@@ -12,11 +12,13 @@ class Airbnb < Sinatra::Base
   Database_connection.connect
 
   get '/' do
+    @error_message = session[:login_message]
     erb(:login, {:layout => true})
   end
 
   post '/login' do
     if User.authenticate(params[:email], params[:password]) == false
+      session[:login_message] = "Email or password is incorrect"
       redirect('/')
     end
     session[:user] = User.authenticate(params[:email], params[:password])
@@ -44,6 +46,7 @@ class Airbnb < Sinatra::Base
   end
 
   get '/space/add' do
+    redirect('/') unless session[:user]
     erb(:add, {:layout => true})
   end
 
@@ -55,6 +58,7 @@ class Airbnb < Sinatra::Base
   end
 
   get '/spaces/book/:id' do
+    redirect('/') unless session[:user]
     @space_id = params[:id]
     availability_space = Availability.retrieve(@space_id)
     bookings = Bookings.bookings_for_space_id(@space_id)
