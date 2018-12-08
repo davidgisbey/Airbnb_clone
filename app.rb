@@ -3,6 +3,9 @@ require './lib/database_connection.rb'
 require './lib/user.rb'
 require './lib/space.rb'
 require './lib/availability.rb'
+require './lib/bookings.rb'
+require './lib/calendar_prep.rb'
+
 class Airbnb < Sinatra::Base
   enable :sessions
 
@@ -17,7 +20,7 @@ class Airbnb < Sinatra::Base
       redirect('/')
     end
     session[:user] = User.authenticate(params[:email], params[:password])
-    redirect('/spaces')
+    redirect('/spaces') #Redirects
   end
 
   get '/register' do
@@ -35,30 +38,37 @@ class Airbnb < Sinatra::Base
   end
 
   get '/spaces' do
-    redirect('/login') unless session[:user]
+    redirect('/') unless session[:user]
     @spaces = Space.list
     erb(:spaces, {:layout => true})
   end
 
   get '/space/add' do
-    redirect('/login') unless session[:user]
     erb(:add, {:layout => true})
   end
 
   post '/spaces/new' do
-    @user_id = session[:user].id
-    @space = Space.create(@user_id, params[:space_name], params[:price_per_night], params[:property_description])
+    @user = session[:user]
+    @space = Space.create(@user.id, params[:name], params[:price], params[:property_description])
+    Availability.update(@space.id, params[:start], params[:end])
     redirect('/spaces')
+  end
 
   get '/spaces/book/:id' do
-    p @space_id = params[:id]
+    @space_id = params[:id]
+    availability_space = Availability.retrieve(@space_id)
+    bookings = Bookings.bookings_for_space_id(@space_id)
+    @start_adate = availability_space.min_date.to_s
+    @end_adate = availability_space.max_date.to_s
+    @booked_dates = Calendar_prep.unavailable_dates(bookings, availability_space)
 
     erb(:book, {:layout => true})
   end
 
   post '/spaces/book/:id' do
-    p @user = session[:user]
-    p @space_id = params[:id]
+    @user = session[:user]
+    @space_id = params[:id]
+    Bookings.create(@space_id, @user.id, params[:start], params[:end])
     redirect('/spaces')
   end
 
