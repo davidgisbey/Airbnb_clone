@@ -44,6 +44,7 @@ class Airbnb < Sinatra::Base
   end
 
   get '/space/add' do
+    redirect('/') unless session[:user]
     erb(:add, {:layout => true})
   end
 
@@ -55,6 +56,7 @@ class Airbnb < Sinatra::Base
   end
 
   get '/spaces/book/:id' do
+    redirect('/') unless session[:user]
     @space_id = params[:id]
     availability_space = Availability.retrieve(@space_id)
     bookings = Bookings.bookings_for_space_id(@space_id)
