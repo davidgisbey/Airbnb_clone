@@ -17,6 +17,13 @@ describe Bookings do
     expect(booking.user_id).to eq(3)
     expect(booking.dates).to eq [date1, date2, date3, date4]
   end
+  it "returns a booking with dates as an empty array if no booking found" do
+    booking = Bookings.bookings_for_space_id(5)
+    expect(booking[0].id).to eq(0)
+    expect(booking[0].space_id).to eq(0)
+    expect(booking[0].user_id).to eq(0)
+    expect(booking[0].dates).to eq []
+  end
   it "self.bookings_for_space_id returns all bookings for a space id" do
     bookings = Bookings.bookings_for_space_id(2)
     date1 = Date.parse('2019-01-18')
