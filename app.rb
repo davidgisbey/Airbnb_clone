@@ -12,11 +12,13 @@ class Airbnb < Sinatra::Base
   Database_connection.connect
 
   get '/' do
+    @error_message = session[:login_message]
     erb(:login, {:layout => true})
   end
 
   post '/login' do
     if User.authenticate(params[:email], params[:password]) == false
+      session[:login_message] = "Email or password is incorrect"
       redirect('/')
     end
     session[:user] = User.authenticate(params[:email], params[:password])
