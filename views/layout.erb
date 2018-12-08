@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+
     <title>MAKERS 5 BNB</title>
     <meta charset="utf-8"/>
-    <link rel='stylesheet' type='text/css' href="<%= url('./css/style.css')%>">
+
+    <link rel="stylesheet" href="/lib/bootstrap-datepicker-1.6.4-dist/css/bootstrap-datepicker.css">
+  <!-- <link rel="stylesheet" href="/lib/bootstrap-datepicker-1.6.4-dist/css/bootstrap-responsive.css"> -->
+  <link rel='stylesheet' type='text/css' href="<%= url('./css/style.css')%>">
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+
+    <style>
+      body {
+        background-image: url('https://designingidea.com/wp-content/uploads/2016/09/beautiful-living-room-with-cream-color-furniture-small-portable-home-bar-and-city-skyline-views.jpg');
+        /* background-position: center; */
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      body, button, input, textarea, {
+        font-family: Helvetica Neue;
+        font-size: 70px;
+        font-weight: 300;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
   </head>
   <body>
-    <%= yield %>
+    <div class='header'>
+    </div>
+    <div id='pages'>
+      <%= yield %>
+    </div>
   </body>
 </html>

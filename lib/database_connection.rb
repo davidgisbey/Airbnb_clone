@@ -14,5 +14,4 @@ class Database_connection
    return @@connection.exec(query)
  end
 
-
 end

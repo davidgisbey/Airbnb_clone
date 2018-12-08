@@ -2,7 +2,7 @@ require 'sinatra/base'
 require './lib/database_connection.rb'
 require './lib/user.rb'
 require './lib/space.rb'
-
+require './lib/availability.rb'
 class Airbnb < Sinatra::Base
   enable :sessions
 
@@ -17,7 +17,7 @@ class Airbnb < Sinatra::Base
       redirect('/')
     end
     session[:user] = User.authenticate(params[:email], params[:password])
-    redirect('/spaces') #Redirects
+    redirect('/spaces')
   end
 
   get '/register' do
@@ -33,23 +33,33 @@ class Airbnb < Sinatra::Base
     session[:user] = User.create(params[:email], params[:username], params[:name], params[:password])
     redirect('/spaces')
   end
+  
+  get '/spaces' do
+    redirect('/login') unless session[:user]
+    @spaces = Space.list
+    erb(:spaces, {:layout => true})
+  end
 
   get '/space/add' do
     redirect('/login') unless session[:user]
     erb(:add, {:layout => true})
   end
-
+  
   post '/spaces/new' do
-    p @user_id = session[:user].id
-    Space.create(@user_id, params[:space_name], params[:price_per_night], params[:property_description])
-    redirect('/spaces')
+    @user_id = session[:user].id
+    @space = Space.create(@user_id, params[:space_name], params[:price_per_night], params[:property_description])
+    redirect('/spaces)
+
+  get '/spaces/book/:id' do
+    p @space_id = params[:id]
+    
+    erb(:book, {:layout => true})
   end
 
-  get '/spaces' do
-    redirect('/login') unless session[:user]
-    @user = session[:user] # Contains user object which has username, id, email
-    @spaces = Space.list
-    erb(:spaces, {:layout => true})
+  post '/spaces/book/:id' do
+    p @user = session[:user]
+    p @space_id = params[:id]
+    redirect('/spaces')
   end
 
   # start the server if ruby file executed directly

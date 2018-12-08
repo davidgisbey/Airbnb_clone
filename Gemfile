@@ -7,6 +7,9 @@ gem 'rubocop', '0.56.0'
 gem 'pg'
 gem 'sinatra-flash'
 gem 'bcrypt'
+gem 'bootstrap'
+# gem 'lessc'
+
 
 group :test do
  gem 'capybara'

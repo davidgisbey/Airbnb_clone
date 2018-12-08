@@ -4,8 +4,8 @@ class Space
 	attr_reader :id, :user_id, :property_name, :price_in_pence, :property_description, :property_owner
 
 	def initialize(id, user_id, property_name, price_in_pence, property_description, property_owner)
-		@id = id
-		@user_id = user_id
+		@id = id.to_i
+		@user_id = user_id.to_i
 		@property_name = property_name
 		@price_in_pence = price_in_pence
 		@property_description = property_description
@@ -15,12 +15,13 @@ class Space
 	def self.create(user_id, property_name, price_in_pence, property_description)
 			query_result = Database_connection.sql("INSERT INTO spaces(user_id, property_name,
 			price_in_pence, property_description)
-			VALUES( #{user_id}, '#{property_name}', #{price_in_pence}, '#{property_description}')
+			VALUES( #{user_id.to_i}, '#{property_name}', #{price_in_pence.to_i}, '#{property_description}')
 			RETURNING id, user_id, property_name,
 			price_in_pence, property_description  ")
 
-			Space.new(query_result[0]['id'].to_i, query_result[0]['user_id'].to_i, query_result[0]['property_name'],
+			space = Space.new(query_result[0]['id'].to_i, query_result[0]['user_id'].to_i, query_result[0]['property_name'],
 			query_result[0]['price_in_pence'].to_i, query_result[0]['property_description'], User.find(query_result[0]['user_id'].to_i ))
+			return space
 	end
 
 	def self.list

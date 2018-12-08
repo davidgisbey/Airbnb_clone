@@ -1,9 +1,18 @@
-<h1>Please enter your email and password</h1>
-<form action="/login" method="POST">
-  <input type="text" name="email" placeholder="Email " />
-  <input type="password" name="password" placeholder="Password" />
-  <input type="submit" value="Log in" />
-</form>
-<form action="/register">
-  <input type="submit" value="Register" />
-</form>
+<div id='login_page'>
+  <div id='login_page_wrapper'>
+    <div id="login_wrapper">
+      <form action="/login" method="POST">
+        <input type="text" name="email" placeholder="Email " />
+        <input type="text" name="password" placeholder="Password" />
+        <div class='submit_wrapper'>
+        <input type="submit" value="Log in" />
+        </div>
+      </form>
+      <form action="/register">
+        <div class='submit_wrapper'>
+          <input type="submit" value="Register" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
