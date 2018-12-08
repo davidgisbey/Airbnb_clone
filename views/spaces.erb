@@ -1,27 +1,18 @@
-<div id='spaces_page'>
-
-<div id='spaces_page_wrapper'>
-  <div id="spaces_title_container">
-      <h1><a href="/space/add" class='title'>Add a space</a></h1>
-  </div>
-
-  <div id="spaces_box">
-    <% @spaces.each do |space| %>
-        <div id="space_container">
-          <div id='space_title_container'>
-            <div id='property_name'>
-                <%= space.property_name %>
-                <%= space.get_formatted_price %>
-            </div>
-            <div id="email">
-              <a href ="mailto: <%= space.property_owner.email %>"><%= space.property_owner.email %> </a>
-            </div>
-          </div>
-          <div id='space_description_container'>
-          <%= space.property_description %>
-          </div>
-        </div>
-    <% end %>
-  </div>
-</div>
-</div>
+<% @spaces.each do |space| %>
+    <span id="space_container">
+      <br />
+        <%= space.property_name %>
+        <br />
+        <%= space.property_description %>
+        <br />
+        <%= space.get_formatted_price %>
+        <br />
+        <%= space.property_owner.email %>
+        <form action="/spaces/book/<%=space.id%>">
+          <input type="submit" name="Book <%= space.property_name %>" value="Book this place" />
+        </form>
+    </span>
+<% end %>
+<form action="/space/add">
+  <input type="submit" value="Add a space" />
+</form>
