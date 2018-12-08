@@ -33,7 +33,7 @@ class Airbnb < Sinatra::Base
     session[:user] = User.create(params[:email], params[:username], params[:name], params[:password])
     redirect('/spaces')
   end
-  
+
   get '/spaces' do
     redirect('/login') unless session[:user]
     @spaces = Space.list
@@ -44,7 +44,7 @@ class Airbnb < Sinatra::Base
     redirect('/login') unless session[:user]
     erb(:add, {:layout => true})
   end
-  
+
   post '/spaces/new' do
     @user_id = session[:user].id
     @space = Space.create(@user_id, params[:space_name], params[:price_per_night], params[:property_description])
@@ -52,7 +52,7 @@ class Airbnb < Sinatra::Base
 
   get '/spaces/book/:id' do
     p @space_id = params[:id]
-    
+
     erb(:book, {:layout => true})
   end
 
