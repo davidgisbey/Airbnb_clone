@@ -50,6 +50,7 @@ class Airbnb < Sinatra::Base
     p params
     p @space = Space.create(@user.id, params[:name], params[:price], params[:property_description])
     Availability.update(@space.id, params[:start], params[:end])
+    # Calendar_prep.available_dates_disabled(Availability.retrieve(@space.id))
     redirect('/spaces')
   end
 

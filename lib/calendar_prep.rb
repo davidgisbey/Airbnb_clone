@@ -14,6 +14,7 @@ class Calendar_prep
 
   def self.available_dates_disabled(availability)
     unavailable_string_array = availability.dates.map { |date| date.to_s }
+    unavailable_string_array.sort!
     unavailable_string_array.join('.')
   end
 end
